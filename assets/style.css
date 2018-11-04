@@ -1,0 +1,30 @@
+body {
+    background-color: #17b847;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: white;
+}
+
+header {
+    text-align: center;
+    color: #0d276e;
+    font-size: 35px;
+}
+
+#form-border {
+    width: 50%;
+    background-color: #0d276e;
+    margin: 0px auto 40px auto;
+    padding: 25px;
+}
+
+.table {
+    width: 75%;
+    margin: 0px auto;
+}
+ 
+th {
+    color: #0d276e;
+}
+tbody {
+    text-align: center;
+}

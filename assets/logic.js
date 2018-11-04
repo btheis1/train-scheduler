@@ -22,18 +22,12 @@ $("#add-train").on("click", function (event) {
 
     //Moment formulas
     var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-    console.log("First time: " + firstTimeConverted)
-    var currentTime = moment();
-    console.log(currentTime);
     var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log(timeDiff);
     var tRemainder = timeDiff % frequency;
-    console.log(tRemainder);
     var minAway = frequency - tRemainder;
-    console.log("Minutes Away: " + minAway);
-    var nextTrain = moment().add(minAway, "minutes").format("hh:mm");
-    console.log("Next train" + nextTrain);
+    var nextTrain = moment().add(minAway, "minutes").format("HH:mm");
 
+    //SAVE user input and calculations in an object
     var newTrain = {
         train: name,
         trainDestination: destination,
@@ -42,7 +36,7 @@ $("#add-train").on("click", function (event) {
         trainAway: minAway,
         trainNext: nextTrain
     }
-
+    //PUSH object to firebase
     database.ref().push(newTrain);
 
     //CLEAR input fields
@@ -55,7 +49,7 @@ $("#add-train").on("click", function (event) {
 
 database.ref().on("child_added", function(childSnapshot) {
     console.log(childSnapshot.val());
-  
+    //DISPLAY results on page
     var newRow = $("<tr>");
     
     var name = childSnapshot.val().train
